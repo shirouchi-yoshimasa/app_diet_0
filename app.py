@@ -163,11 +163,11 @@ elif choice == 'BMI計算':
     st.title('BMI計算')
     weight = None
     height = None
-    if weight_2:
+    if 'weight_2' in locals():
         weight = weight_2
     else:
         weight = st.number_input('体重(kg)', min_value=0.0, max_value=500.0, step=0.1)
-    if height_2:
+    if 'height_2' in locals():
         height = height_2
     else:
         height = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
@@ -179,6 +179,7 @@ elif choice == 'BMI計算':
             save_bmi(today, bmi)
             st.success('BMIを保存しました。')
     show_bmi()
+
 
 
 elif choice == '食事内容':
