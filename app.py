@@ -20,6 +20,7 @@ def show_profile():
         st.write(f"年齢: {profile[1][1]}")
         st.write(f"性別: {profile[1][2]}")
         st.write(f"身長: {profile[1][3]} cm")
+        return profile[1][3]
 
 # 体重を保存する
 def save_weight(date, weight):
@@ -37,6 +38,7 @@ def show_weight():
             weights.append(row)
         for weight in weights:
             st.write(f"日付: {weight[0]}, 体重: {weight[1]} kg")
+     return weight[0]
 
 # BMIを計算する
 def calculate_bmi(weight, height):
@@ -146,7 +148,7 @@ if choice == 'プロフィール':
     if st.button('保存', key='profile_save_button'):
         save_profile(name, age, gender, height)
         st.success('プロフィールを保存しました。')
-    show_profile()
+    height_2 = show_profile()
 
 elif choice == '体重記録':
     st.title('体重記録')
@@ -155,12 +157,18 @@ elif choice == '体重記録':
     if st.button('保存', key='weight_save_button'):
         save_weight(date, weight)
         st.success('体重を保存しました。')
-    show_weight()
+    weight_2 = show_weight()
 
 elif choice == 'BMI計算':
     st.title('BMI計算')
-    weight = st.number_input('体重(kg)', min_value=0.0, max_value=500.0, step=0.1)
-    height = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
+    if weight_2:
+        weight = weight_2
+    else:
+        weight = st.number_input('体重(kg)', min_value=0.0, max_value=500.0, step=0.1)
+    if height_2:
+        height = height_2
+    else:
+        height = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
     if st.button('計算', key='bmi_calculate_button'):
         bmi = calculate_bmi(weight, height)
         st.write(f"BMI: {bmi:.2f}")
