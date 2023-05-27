@@ -1,6 +1,9 @@
 import streamlit as st
 import csv
 from datetime import datetime
+import os
+
+
 
 # プロフィール保存をする
 def save_profile(name, age, gender, height):
@@ -24,10 +27,20 @@ def show_profile():
 
 # 体重を保存する
 def save_weight(date, weight):
-    with open('weight.csv', 'a', newline='') as f:
+    csv_path = os.path.join(os.getcwd(), 'weight.csv')
+    
+    # weight.csvを読み込む
+    with open(csv_path, 'r') as f:
+        reader = csv.reader(f)
+        rows = list(reader)
+    
+    # 新しいデータを追加する
+    rows.append([date, weight])
+    
+    # weight.csvを上書き保存する
+    with open(csv_path, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['date', 'weight'])
-        writer.writerow([date, weight])
+        writer.writerows(rows)
 
 # 体重を表示する
 def show_weight():
