@@ -159,7 +159,7 @@ elif choice == '体重記録':
 
 elif choice == 'BMI計算':
     st.title('BMI計算')
-    weight = st.number_input('体重(kg)', min_value=0.0, max_value500.0, step=0.1)
+    weight = st.number_input('体重(kg)', min_value=0.0, max_value=500.0, step=0.1)
     height = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
     if st.button('計算', key='bmi_calculate_button'):
         bmi = calculate_bmi(weight, height)
