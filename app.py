@@ -2,7 +2,7 @@ import streamlit as st
 import csv
 from datetime import datetime
 
-# プロフィをする
+# プロフィール保存をする
 def save_profile(name, age, gender, height):
     with open('profile.csv', 'w', newline='') as f:
         writer = csv.writer(f)
@@ -38,7 +38,7 @@ def show_weight():
             weights.append(row)
         for weight in weights:
             st.write(f"日付: {weight[0]}, 体重: {weight[1]} kg")
-     return weight[0]
+        return weight[0]
 
 # BMIを計算する
 def calculate_bmi(weight, height):
