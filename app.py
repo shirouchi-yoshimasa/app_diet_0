@@ -142,7 +142,7 @@ if choice == 'プロフィール':
     name = st.text_input('名前')
     age = st.number_input('年齢', min_value=0, max_value=120, step=1)
     gender = st.radio('性別', ['男性', '女性'])
-    = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
+    height = st.number_input('身長(cm)', min_value=0, max_value=300, step=1)
     if st.button('保存', key='profile_save_button'):
         save_profile(name, age, gender, height)
         st.success('プロフィールを保存しました。')
