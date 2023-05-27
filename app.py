@@ -91,7 +91,7 @@ def show_steps():
         reader = csv.reader(f)
         steps_list = []
  for row in reader:
-            steps_list.append(row)
+        steps_list.append(row)
         for steps in steps_list:
             st.write(f"日付: {steps[0]}, 歩数: {steps[1]} 歩")
 
