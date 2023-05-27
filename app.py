@@ -161,6 +161,8 @@ elif choice == '体重記録':
 
 elif choice == 'BMI計算':
     st.title('BMI計算')
+    weight = None
+    height = None
     if weight_2:
         weight = weight_2
     else:
@@ -177,6 +179,7 @@ elif choice == 'BMI計算':
             save_bmi(today, bmi)
             st.success('BMIを保存しました。')
     show_bmi()
+
 
 elif choice == '食事内容':
     st.title('食事内容')
