@@ -200,7 +200,7 @@ elif choice == '筋トレ系運動種類と時間':
 
 elif choice == '今日の良かったことと反省':
     st.title('今日の良かったことと反省')
-    date = st.date_input日付')
+    date = st.date_input('日付')
     good = st.text_input('良かったこと')
     bad = st.text_input('反省')
     if st.button('保存', key='journal_save_button'):
